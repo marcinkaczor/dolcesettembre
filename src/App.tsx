@@ -2,8 +2,66 @@
 
 import { Church, Clock, MapPin, PartyPopper } from 'lucide-react'
 import './App.css'
+import { useEffect, useState } from 'react'
 
 function App() {
+  const targetDateUTC2 = new Date(Date.UTC(2025, 8, 27, 12, 0, 0)).getTime()
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft())
+
+  function calculateTimeLeft() {
+    const nowUTC = new Date().getTime() - new Date().getTimezoneOffset() * 60000
+    const diffMs = targetDateUTC2 - nowUTC
+
+    if (diffMs <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+    }
+
+    return {
+      days: Math.floor(diffMs / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((diffMs % (1000 * 60)) / 1000),
+    }
+  }
+
+  function getDayLabel(value: number) {
+    return getPluralLabel(value, ['dzień', 'dni', 'dni'])
+  }
+
+  function getHourLabel(value: number) {
+    return getPluralLabel(value, ['godzina', 'godziny', 'godzin'])
+  }
+
+  function getMinuteLabel(value: number) {
+    return getPluralLabel(value, ['minuta', 'minuty', 'minut'])
+  }
+
+  function getSecondLabel(value: number) {
+    return getPluralLabel(value, ['sekunda', 'sekundy', 'sekund'])
+  }
+
+  function getPluralLabel(value: number, forms: [string, string, string]) {
+    const lang = navigator.language || 'pl'
+
+    if (lang.startsWith('pl')) {
+      if (value === 1) return forms[0]
+      if (value % 10 >= 2 && value % 10 <= 4 && (value % 100 < 10 || value % 100 >= 20)) {
+        return forms[1]
+      }
+      return forms[2]
+    }
+
+    return value === 1 ? forms[0] : forms[2] // np. "hour" / "hours"
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft())
+    }, 1000)
+
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <div
       style={{
@@ -25,7 +83,7 @@ function App() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              rowGap: 24,
+              rowGap: 16,
             }}
           >
             <span
@@ -38,7 +96,7 @@ function App() {
             >
               Bawimy się za
             </span>
-            <div style={{ display: 'flex', columnGap: 48 }}>
+            <div style={{ display: 'flex', columnGap: 32 }}>
               <div
                 style={{
                   display: 'flex',
@@ -56,12 +114,12 @@ function App() {
                     color: 'white',
                     backgroundColor: 'var(--color-beige)',
                     height: 104,
-                    width: 64,
+                    width: 68,
                     borderRadius: 8,
                     fontSize: '2em',
                   }}
                 >
-                  207
+                  {timeLeft.days}
                 </div>
                 <span
                   style={{
@@ -71,7 +129,7 @@ function App() {
                     fontSize: '1em',
                   }}
                 >
-                  dni
+                  {getDayLabel(timeLeft.days)}
                 </span>
               </div>
               <div
@@ -91,12 +149,12 @@ function App() {
                     color: 'white',
                     backgroundColor: 'var(--color-beige)',
                     height: 104,
-                    width: 64,
+                    width: 68,
                     borderRadius: 8,
                     fontSize: '2em',
                   }}
                 >
-                  12
+                  {timeLeft.hours}
                 </div>
                 <span
                   style={{
@@ -106,7 +164,7 @@ function App() {
                     fontSize: '1em',
                   }}
                 >
-                  godzin
+                  {getHourLabel(timeLeft.hours)}
                 </span>
               </div>
               <div
@@ -126,12 +184,12 @@ function App() {
                     color: 'white',
                     backgroundColor: 'var(--color-beige)',
                     height: 104,
-                    width: 64,
+                    width: 68,
                     borderRadius: 8,
                     fontSize: '2em',
                   }}
                 >
-                  4
+                  {timeLeft.minutes}
                 </div>
                 <span
                   style={{
@@ -141,7 +199,42 @@ function App() {
                     fontSize: '1em',
                   }}
                 >
-                  minuty
+                  {getMinuteLabel(timeLeft.minutes)}
+                </span>
+              </div>
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  rowGap: 8,
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    alignSelf: 'start',
+                    color: 'white',
+                    backgroundColor: 'var(--color-beige)',
+                    height: 104,
+                    width: 68,
+                    borderRadius: 8,
+                    fontSize: '2em',
+                  }}
+                >
+                  {timeLeft.seconds}
+                </div>
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  {getSecondLabel(timeLeft.seconds)}
                 </span>
               </div>
             </div>
