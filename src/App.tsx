@@ -1,6 +1,6 @@
 /// <reference types="vite-plugin-svgr/client" />
 
-import { Church, Clock, MapPin, PartyPopper } from 'lucide-react'
+import { Baby, Bed, Bus, Church, Clock, MapPin, PartyPopper } from 'lucide-react'
 import './App.css'
 import { useEffect, useState } from 'react'
 
@@ -69,8 +69,6 @@ function App() {
         flexDirection: 'column',
         alignItems: 'center',
         color: 'var(--color-beige)',
-        height: '100dvh',
-        width: '100dvw',
       }}
     >
       <h1 style={{ fontFamily: '"Cormorant", serif', fontWeight: 300, fontSize: '4em' }}>
@@ -365,6 +363,60 @@ function App() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
+        </div>
+        <div style={{ display: 'flex', columnGap: 16, marginBottom: 48 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16, width: 600 }}>
+            <h3
+              style={{
+                marginTop: 16,
+                marginBottom: 16,
+                fontFamily: '"Montserrat", sans-serif',
+                fontWeight: 400,
+                fontSize: '2em',
+              }}
+            >
+              Piktogramy
+            </h3>
+            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+              <Bed />
+              <span
+                style={{
+                  color: 'var(--color-silver)',
+                  fontFamily: '"Montserrat", sans-serif',
+                  fontWeight: 400,
+                  fontSize: '1em',
+                }}
+              >
+                nocleg wraz ze śniadaniem
+              </span>
+            </div>
+            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+              <Bus />
+              <span
+                style={{
+                  color: 'var(--color-silver)',
+                  fontFamily: '"Montserrat", sans-serif',
+                  fontWeight: 400,
+                  fontSize: '1em',
+                }}
+              >
+                transport powrotny busem do domu - kursy o 0:00 i 2:00
+              </span>
+            </div>
+            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+              <Baby />
+              <span
+                style={{
+                  color: 'var(--color-silver)',
+                  fontFamily: '"Montserrat", sans-serif',
+                  fontWeight: 400,
+                  fontSize: '1em',
+                }}
+              >
+                opieka animatorek nad dziećmi w wieku od 2 do 10 lat w godzinach 18:00-22:00
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
