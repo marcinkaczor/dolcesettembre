@@ -71,350 +71,369 @@ function App() {
         color: 'var(--color-beige)',
       }}
     >
-      <h1 style={{ fontFamily: '"Cormorant", serif', fontWeight: 300, fontSize: '4em' }}>
+      <h1
+        style={{
+          fontFamily: '"Cormorant", serif',
+          fontWeight: 300,
+          fontSize: '4em',
+          textAlign: 'center',
+        }}
+      >
         KASIA & MARCIN
       </h1>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', rowGap: 48 }}>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              rowGap: 16,
-            }}
-          >
-            <span
+      <div style={{ padding: 24 }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+            rowGap: 48,
+            maxWidth: 768,
+            width: '100%',
+            margin: '0 auto',
+          }}
+        >
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div
               style={{
-                color: 'var(--color-silver)',
-                fontFamily: '"Montserrat", sans-serif',
-                fontWeight: 400,
-                fontSize: '1em',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                rowGap: 16,
               }}
             >
-              Bawimy się za
-            </span>
-            <div style={{ display: 'flex', columnGap: 32 }}>
-              <div
+              <span
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  rowGap: 8,
+                  color: 'var(--color-silver)',
+                  fontFamily: '"Montserrat", sans-serif',
+                  fontWeight: 400,
+                  fontSize: '1em',
                 }}
               >
+                Bawimy się za
+              </span>
+              <div style={{ display: 'flex', columnGap: 24 }}>
                 <div
                   style={{
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    alignSelf: 'start',
-                    color: 'white',
-                    backgroundColor: 'var(--color-beige)',
-                    height: 104,
-                    width: 68,
-                    borderRadius: 8,
-                    fontSize: '2em',
+                    rowGap: 8,
                   }}
                 >
-                  {timeLeft.days}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      alignSelf: 'start',
+                      color: 'white',
+                      backgroundColor: 'var(--color-beige)',
+                      height: 104,
+                      width: 68,
+                      borderRadius: 8,
+                      fontSize: '2em',
+                    }}
+                  >
+                    {timeLeft.days}
+                  </div>
+                  <span
+                    style={{
+                      color: 'var(--color-silver)',
+                      fontFamily: '"Montserrat", sans-serif',
+                      fontWeight: 400,
+                      fontSize: '1em',
+                    }}
+                  >
+                    {getDayLabel(timeLeft.days)}
+                  </span>
                 </div>
-                <span
-                  style={{
-                    color: 'var(--color-silver)',
-                    fontFamily: '"Montserrat", sans-serif',
-                    fontWeight: 400,
-                    fontSize: '1em',
-                  }}
-                >
-                  {getDayLabel(timeLeft.days)}
-                </span>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  rowGap: 8,
-                }}
-              >
                 <div
                   style={{
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    alignSelf: 'start',
-                    color: 'white',
-                    backgroundColor: 'var(--color-beige)',
-                    height: 104,
-                    width: 68,
-                    borderRadius: 8,
-                    fontSize: '2em',
+                    rowGap: 8,
                   }}
                 >
-                  {timeLeft.hours}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      alignSelf: 'start',
+                      color: 'white',
+                      backgroundColor: 'var(--color-beige)',
+                      height: 104,
+                      width: 68,
+                      borderRadius: 8,
+                      fontSize: '2em',
+                    }}
+                  >
+                    {timeLeft.hours}
+                  </div>
+                  <span
+                    style={{
+                      color: 'var(--color-silver)',
+                      fontFamily: '"Montserrat", sans-serif',
+                      fontWeight: 400,
+                      fontSize: '1em',
+                    }}
+                  >
+                    {getHourLabel(timeLeft.hours)}
+                  </span>
                 </div>
-                <span
-                  style={{
-                    color: 'var(--color-silver)',
-                    fontFamily: '"Montserrat", sans-serif',
-                    fontWeight: 400,
-                    fontSize: '1em',
-                  }}
-                >
-                  {getHourLabel(timeLeft.hours)}
-                </span>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  rowGap: 8,
-                }}
-              >
                 <div
                   style={{
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    alignSelf: 'start',
-                    color: 'white',
-                    backgroundColor: 'var(--color-beige)',
-                    height: 104,
-                    width: 68,
-                    borderRadius: 8,
-                    fontSize: '2em',
+                    rowGap: 8,
                   }}
                 >
-                  {timeLeft.minutes}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      alignSelf: 'start',
+                      color: 'white',
+                      backgroundColor: 'var(--color-beige)',
+                      height: 104,
+                      width: 68,
+                      borderRadius: 8,
+                      fontSize: '2em',
+                    }}
+                  >
+                    {timeLeft.minutes}
+                  </div>
+                  <span
+                    style={{
+                      color: 'var(--color-silver)',
+                      fontFamily: '"Montserrat", sans-serif',
+                      fontWeight: 400,
+                      fontSize: '1em',
+                    }}
+                  >
+                    {getMinuteLabel(timeLeft.minutes)}
+                  </span>
                 </div>
-                <span
-                  style={{
-                    color: 'var(--color-silver)',
-                    fontFamily: '"Montserrat", sans-serif',
-                    fontWeight: 400,
-                    fontSize: '1em',
-                  }}
-                >
-                  {getMinuteLabel(timeLeft.minutes)}
-                </span>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  rowGap: 8,
-                }}
-              >
                 <div
                   style={{
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    alignSelf: 'start',
-                    color: 'white',
-                    backgroundColor: 'var(--color-beige)',
-                    height: 104,
-                    width: 68,
-                    borderRadius: 8,
-                    fontSize: '2em',
+                    rowGap: 8,
                   }}
                 >
-                  {timeLeft.seconds}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      alignSelf: 'start',
+                      color: 'white',
+                      backgroundColor: 'var(--color-beige)',
+                      height: 104,
+                      width: 68,
+                      borderRadius: 8,
+                      fontSize: '2em',
+                    }}
+                  >
+                    {timeLeft.seconds}
+                  </div>
+                  <span
+                    style={{
+                      color: 'var(--color-silver)',
+                      fontFamily: '"Montserrat", sans-serif',
+                      fontWeight: 400,
+                      fontSize: '1em',
+                    }}
+                  >
+                    {getSecondLabel(timeLeft.seconds)}
+                  </span>
                 </div>
-                <span
-                  style={{
-                    color: 'var(--color-silver)',
-                    fontFamily: '"Montserrat", sans-serif',
-                    fontWeight: 400,
-                    fontSize: '1em',
-                  }}
-                >
-                  {getSecondLabel(timeLeft.seconds)}
-                </span>
               </div>
             </div>
           </div>
-        </div>
-        <div style={{ display: 'flex', columnGap: 16 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16, width: 300 }}>
-            <h3
-              style={{
-                marginTop: 16,
-                marginBottom: 16,
-                fontFamily: '"Montserrat", sans-serif',
-                fontWeight: 400,
-                fontSize: '2em',
-              }}
-            >
-              Ślub
-            </h3>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <Clock />
-              <span
+          <div style={{ display: 'flex', columnGap: 32, flexWrap: 'wrap', rowGap: 32 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16, flexGrow: 1 }}>
+              <h3
                 style={{
-                  color: 'var(--color-silver)',
+                  marginTop: 16,
+                  marginBottom: 16,
                   fontFamily: '"Montserrat", sans-serif',
                   fontWeight: 400,
-                  fontSize: '1em',
+                  fontSize: '2em',
                 }}
               >
-                14:00
-              </span>
+                Ślub
+              </h3>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <Clock />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  14:00
+                </span>
+              </div>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <Church />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  Parafia Świętej Trójcy w Bytomiu
+                </span>
+              </div>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <MapPin />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  Józefa Kwietniewskiego 1, 41-902 Bytom
+                </span>
+              </div>
             </div>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <Church />
-              <span
-                style={{
-                  color: 'var(--color-silver)',
-                  fontFamily: '"Montserrat", sans-serif',
-                  fontWeight: 400,
-                  fontSize: '1em',
-                }}
-              >
-                Parafia Świętej Trójcy w Bytomiu
-              </span>
-            </div>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <MapPin />
-              <span
-                style={{
-                  color: 'var(--color-silver)',
-                  fontFamily: '"Montserrat", sans-serif',
-                  fontWeight: 400,
-                  fontSize: '1em',
-                }}
-              >
-                Józefa Kwietniewskiego 1, 41-902 Bytom
-              </span>
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2545.962508917518!2d18.914972841739658!3d50.34860464387933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e22b538bf60d05%3A0x549b6e72fcacfee0!2sParafia%20%C5%9Awi%C4%99tej%20Tr%C3%B3jcy%20w%20Bytomiu!5e0!3m2!1spl!2spl!4v1741124478691!5m2!1spl!2spl"
+              width="300"
+              height="225"
+              style={{ border: 0, borderRadius: 8 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2545.962508917518!2d18.914972841739658!3d50.34860464387933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e22b538bf60d05%3A0x549b6e72fcacfee0!2sParafia%20%C5%9Awi%C4%99tej%20Tr%C3%B3jcy%20w%20Bytomiu!5e0!3m2!1spl!2spl!4v1741124478691!5m2!1spl!2spl"
-            width="300"
-            height="225"
-            style={{ border: 0, borderRadius: 8 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-        <div style={{ display: 'flex', columnGap: 16 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16, width: 300 }}>
-            <h3
-              style={{
-                marginTop: 16,
-                marginBottom: 16,
-                fontFamily: '"Montserrat", sans-serif',
-                fontWeight: 400,
-                fontSize: '2em',
-              }}
-            >
-              Wesele
-            </h3>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <Clock />
-              <span
+          <div style={{ display: 'flex', columnGap: 32, flexWrap: 'wrap', rowGap: 32 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16, flexGrow: 1 }}>
+              <h3
                 style={{
-                  color: 'var(--color-silver)',
+                  marginTop: 16,
+                  marginBottom: 16,
                   fontFamily: '"Montserrat", sans-serif',
                   fontWeight: 400,
-                  fontSize: '1em',
+                  fontSize: '2em',
                 }}
               >
-                po ślubie
-              </span>
+                Wesele
+              </h3>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <Clock />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  po ślubie
+                </span>
+              </div>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <PartyPopper />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  Sala Stara Szwajcaria
+                </span>
+              </div>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <MapPin />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  Łabędzka 6, 44-100 Gliwice
+                </span>
+              </div>
             </div>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <PartyPopper />
-              <span
-                style={{
-                  color: 'var(--color-silver)',
-                  fontFamily: '"Montserrat", sans-serif',
-                  fontWeight: 400,
-                  fontSize: '1em',
-                }}
-              >
-                Sala Stara Szwajcaria
-              </span>
-            </div>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <MapPin />
-              <span
-                style={{
-                  color: 'var(--color-silver)',
-                  fontFamily: '"Montserrat", sans-serif',
-                  fontWeight: 400,
-                  fontSize: '1em',
-                }}
-              >
-                Łabędzka 6, 44-100 Gliwice
-              </span>
-            </div>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d637.0391720896032!2d18.63103699722957!3d50.30766795042239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4711319f8c6849b3%3A0xc58b39055c51c5d!2sStara%20Szwajcaria!5e0!3m2!1spl!2spl!4v1741124044856!5m2!1spl!2spl"
+              width="300"
+              height="225"
+              style={{ border: 0, borderRadius: 8 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d637.0391720896032!2d18.63103699722957!3d50.30766795042239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4711319f8c6849b3%3A0xc58b39055c51c5d!2sStara%20Szwajcaria!5e0!3m2!1spl!2spl!4v1741124044856!5m2!1spl!2spl"
-            width="300"
-            height="225"
-            style={{ border: 0, borderRadius: 8 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
-        <div style={{ display: 'flex', columnGap: 16, marginBottom: 48 }}>
-          <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16, width: 600 }}>
-            <h3
-              style={{
-                marginTop: 16,
-                marginBottom: 16,
-                fontFamily: '"Montserrat", sans-serif',
-                fontWeight: 400,
-                fontSize: '2em',
-              }}
-            >
-              Piktogramy
-            </h3>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <Bed />
-              <span
+          <div style={{ display: 'flex', columnGap: 16, marginBottom: 16 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16 }}>
+              <h3
                 style={{
-                  color: 'var(--color-silver)',
+                  marginTop: 16,
+                  marginBottom: 16,
                   fontFamily: '"Montserrat", sans-serif',
                   fontWeight: 400,
-                  fontSize: '1em',
+                  fontSize: '2em',
                 }}
               >
-                nocleg wraz ze śniadaniem
-              </span>
-            </div>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <Bus />
-              <span
-                style={{
-                  color: 'var(--color-silver)',
-                  fontFamily: '"Montserrat", sans-serif',
-                  fontWeight: 400,
-                  fontSize: '1em',
-                }}
-              >
-                transport powrotny busem do domu - kursy o 0:00 i 2:00
-              </span>
-            </div>
-            <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
-              <Baby />
-              <span
-                style={{
-                  color: 'var(--color-silver)',
-                  fontFamily: '"Montserrat", sans-serif',
-                  fontWeight: 400,
-                  fontSize: '1em',
-                }}
-              >
-                opieka animatorek nad dziećmi w wieku od 2 do 10 lat w godzinach 18:00-22:00
-              </span>
+                Piktogramy
+              </h3>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <Bed />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  nocleg wraz ze śniadaniem
+                </span>
+              </div>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <Bus />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  transport powrotny busem do domu - kursy o 0:00 i 2:00
+                </span>
+              </div>
+              <div style={{ display: 'flex', columnGap: 8, alignItems: 'center' }}>
+                <Baby />
+                <span
+                  style={{
+                    color: 'var(--color-silver)',
+                    fontFamily: '"Montserrat", sans-serif',
+                    fontWeight: 400,
+                    fontSize: '1em',
+                  }}
+                >
+                  opieka animatorek nad dziećmi w wieku od 2 do 10 lat w godzinach 18:00-22:00
+                </span>
+              </div>
             </div>
           </div>
         </div>
